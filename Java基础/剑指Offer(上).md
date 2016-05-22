@@ -74,7 +74,9 @@
 				return SingletonHolder.INSTANCE;
 		}
 	}
-	```
+	``` 
+	[单例模式](http://wuchong.me/blog/2014/08/28/how-to-correctly-write-singleton-pattern/) 
+	[懒汉式和饿汉式](http://stormzhang.com/designpattern/2016/03/27/android-design-pattern-singleton/)
 	
 3. 二维数组中的查找            
     题目描述：一个二维数组，每一行从左到右递增，每一列从上到下递增．输入一个二维数组和一个整数，判断数组中是否含有整数。
