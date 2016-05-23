@@ -113,6 +113,6 @@ window.onload = function() {
 </html>
 ```
 	
-![](http://chuantu.biz/t4/20/1464022576x3738746535.png)
+![七巧板图片](http://chuantu.biz/t4/20/1464022576x3738746535.png)
 
 
