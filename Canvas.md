@@ -29,10 +29,19 @@ window.onload = function() {
 		context.beginPath();
 		context.moveTo(200, 100);
 		context.lineTo(700, 600);
-		context.closePath();
+		context.closePath(); // 如果当前路径不是封闭的，会自动连线使之封闭
 		context.strokeStyle = "black";
 		context.stroke();	 // 再画一根
-
+	
+ 		context.arc(300, 300, 200, 0, 1.5 * Math.PI, true); // 画弧
+		context.lineWidth = 5;
+		context.stokeStyle = "#005588";
+		context.stroke(); 
+		
+	 	context.beginPath(); 
+		context.arc(400, 400, 200, 0, 1.5 * Math.PI, true); // 弧，填充
+		context.fillStyle = "red";
+		context.fill();
 	} else {
 		alert("当前浏览器不支持 Canvas, 请更换浏览器后再试"); // 直接写到 canvas 标签中也行
 	}
