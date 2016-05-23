@@ -113,6 +113,6 @@ window.onload = function() {
 </html>
 ```
 	
-![image](https://i.niupic.com/images/2016/05/24/nhhfV5.png)
+![image](../七巧板图片.png)
 
 
