@@ -1,4 +1,4 @@
-- 实现懒加载   
+- 实现懒加载
 	- 需求  
 		WebView 初始化，太慢。目前解决思路有两种，使用 canvas 和懒加载。先试试懒加载。
 	- 思维过程  
@@ -35,6 +35,17 @@
 		3. btn.Register，在页面 initialize 上 register 事件，在实际的 click 时候，会 emit 事件。
 		4. Navigator 里有个 InitialzeUI，是在什么触发的？在异步转同步工作流中。
 		5. ==就是不知道动手，我该怎么办？脑中想象代码。==一个pages 数组，这个数组，一开始只有一个 page，也就是第一个页面。将这个 pages 数组传给 PageLayout 的构造函数。当点击 nav_button 的时候，就把那个 page AddChild 进 PageLayout 里。再次点击，page 会再次被 AddChild 进 PageLayout 中，这个时候，PageLayout 中已经做好这个处理了，AddChild 时候，先检查是否在，在的话，直接 return。点击 nav_button 之后，page AddChild，ActivePage。
+	
+		==总结==　pages，只有一个元素，生成 PageLayout，每次 nav_button 的点击，AddChild，ActivePage。
+		==但是==　还是没有效果，需 7s 才可以加载。我猜是不是 JS 的原因，需要测试一下。
+		
+		
+- 点击事件延迟
+	- ==出现场景==　WebView 点击事件延迟。
+	- ==为什么==　查阅资料说是 300ms 延迟事件，为了区分单击和双击，但是我这不止 300ms 啊。
+	- ==怎么办==　
+
+		1. console.log 一点点测时间，到底哪儿出问题了。1.测试 Android Studio 是否会显示 console.log 的信息；2.JavaScript打印时间。
 
 		    
 				
