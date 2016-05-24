@@ -10,7 +10,7 @@ JS基础简介及入门
 废多看码:    
 - `HTML`中的脚本必须位于`<script>`与`</script>`标签之间。
 - 脚本可被放置在`HTML`页面的`<body>`和`<head>`部分中。
-- 通常的做法是把函数放入 <head> 部分中，或者放在页面底部。这样就可以把它们安置到同一处位置，
+- 通常的做法是把函数放入 `<head>` 部分中，或者放在页面底部。这样就可以把它们安置到同一处位置，
   不会干扰页面的内容。
 
 
@@ -25,7 +25,8 @@ alert("Hello World!");
 
 或者也可以把脚本保存到外部文件中。外部文件通常包含被多个网页使用的代码。扩展名是`.js`。
 如需使用外部文件，请在`<script>`标签的`src`属性中设置该`.js`文件：
-```
+
+``` html
 <html>
 <body>
 <script src="myScript.js"></script>
@@ -77,11 +78,12 @@ var carname="Volvo";
 var carname;
 ```
 如果重新声明`JavaScript`变量，该变量的值不会丢失
-在以下两条语句执行后，变量`carname`的值依然是`Volvo`
+在以上两条语句执行后，变量`carname`的值依然是`Volvo`
 
 - Undefined 和 Null
 `Undefined`这个值表示变量不含有值。
 可以通过将变量的值设置为`null`来清空变量。
+JS 一声明变量就有内存分配。
 ```
 x = null;
 ```
@@ -172,6 +174,7 @@ var x=message.toUpperCase();
 ```
 
 - 方法
+
 ```
 function myFunction(name, job) {
 	document.getElementById("name").innerHTML = name;
@@ -226,13 +229,14 @@ name = "james";
 	- &&
 	- ||
 	- ! 非
-`+`运算符用于把数字或者字符串加起来(连接起来).	
+	- `+`运算符用于把数字或者字符串加起来(连接起来).	
 	
 - 三元运算符
 ```
 variablename=(condition)?value1:value2 
 ```
 - 条件语句
+
 ```
 if (条件) {
 
@@ -244,6 +248,7 @@ if (条件) {
 ```
 
 - Switch语句
+
 ```
 var day=new Date().getDay();
 switch (day) {
@@ -260,26 +265,32 @@ default:
 ```
 
 - 循环
+
 ```
 for (var i=0; i<5; i++) {
 	x=x + "The number is " + i + "<br>";
 }
 ```
 或
+
 ```
 var person={fname:"John",lname:"Doe",age:25};
 for (x in person) {
 	txt=txt + person[x];
 }
 ```
+
 或
+
 ```
 while (条件) {
 	需要执行的代码
 }
 
 ```
+
 或
+
 ```
 do {
 	需要执行的代码
@@ -314,6 +325,7 @@ try {
 }
 ```
 如:
+
 ```
 <script>
 function myFunction()
@@ -395,6 +407,7 @@ alert (typeof 86);    //输出 "number"
 
 
 最后看下这个小`demo`，为下面的`DOM`作铺垫。
+
 ```
 <!DOCTYPE html>
 <html>
@@ -428,3 +441,4 @@ x.innerHTML="Hello JavaScript!";    // 改变内容
 
 
 	
+
