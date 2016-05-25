@@ -45,10 +45,17 @@ DiaSocial 问题
 - 点击事件延迟
 	- ==出现场景==　WebView 点击事件延迟。
 	- ==为什么==　查阅资料说是 300ms 延迟事件，为了区分单击和双击，但是我这不止 300ms 啊。
-	- ==怎么办==　
+	- ==怎么办==　发现是很多 Page 刷了很多遍，做优化。
+	- TurnInvalidate 函数，先设为 false，直接 return，再 AddChild，AddChild 的时候，就不会刷新，再设为 true，然后刷新。不然 每一次 AddChild 都要刷新一下，每一次都要刷新前面所有的次数。
 
-		1. console.log 一点点测时间，到底哪儿出问题了。1.测试 Android Studio 是否会显示 console.log 的信息；2.JavaScript打印时间。
+- 软键盘将页面布局顶上去
+	- android:windowSoftInputMode="adjustNothing"
+	- 其余方法再说
 
+- 传数据
+	- jQuery 发 Ajax
+	- 上来就写
+	- 获取保存按钮，再页面初始化的时候，给 save_button 注册事件，然后再点击时 emit 事件。事件的参数，当前活跃页面，从当前活跃页面传来的数据。
 		    
 				
 

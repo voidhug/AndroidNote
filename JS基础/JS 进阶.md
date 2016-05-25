@@ -21,5 +21,9 @@ var time = Date.parse(new Date());
 var time = (new Date()).valueOf(); // 精确到秒，毫秒显示为0。
 ```
 
+call 后面跟参数列表
+apply 后面跟对象和参数列表
+
+
 
 
