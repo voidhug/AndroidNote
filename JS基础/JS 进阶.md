@@ -51,5 +51,36 @@ var end = new Date().getTime();
 alert(end - start);
 ```
 
+jQuery 使用 Ajax
+点击 save，然后就发 ajax 了，有 type、url、data、dataType、success、error；
+success 也有错误，success 的错误是 data 的错误，error 是 jqXHR 的错误。==什么叫 data 的错误？什么叫 error 的错误？==
+最好的方法是看源码。
+
+```JavaScript
+$("#save").click(function(){ 
+	$.ajax({ 
+	    type: "POST", 	
+		url: "serverjson.php",
+		data: {
+			name: $("#staffName").val(), 
+			number: $("#staffNumber").val(), 
+			sex: $("#staffSex").val(), 
+			job: $("#staffJob").val()
+		},
+		dataType: "json",
+		success: function(data){
+			if (data.success) { 
+				$("#createResult").html(data.msg);
+			} else {
+				$("#createResult").html("出现错误：" + data.msg);
+			}  
+		},
+		error: function(jqXHR){     
+		   alert("发生错误：" + jqXHR.status);  
+		},     
+	});
+});
+```
+
 
 
