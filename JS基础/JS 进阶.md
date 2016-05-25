@@ -24,6 +24,32 @@ var time = (new Date()).valueOf(); // 精确到秒，毫秒显示为0。
 call 后面跟参数列表
 apply 后面跟对象和参数列表
 
+清空数组
+
+```JavaScipt
+// 方法一
+var ary = [1, 2, 3, 4];
+ary.splice(0, ary.length);
+
+// 方法二
+var ary = [1, 2, 3, 4];
+ary.length = 0; // 可对 length 进行写操作，Java 只可以读。
+
+// 方法三
+var ary = [1, 2, 3, 4];
+ary = [];
+
+// 我测了以下，都是 0 ms。
+var a = [];
+for (var i = 0; i < 1000000; i++) {
+	a.push(i);
+}
+var start = new Date().getTime();
+a.length = 0;
+// a = [];
+var end = new Date().getTime();
+alert(end - start);
+```
 
 
 
