@@ -12,56 +12,60 @@
 	- 枚举              
 	
 	具体实现:      
-	- 饿汉式              
-		```java
-		public class Singleton {
-			private Singleton() {
-			}
-
-			private static final Singleton SINGLETON = new Singleton();
-
-			public static Singleton getInstance() {
-				return SINGLETON;
-			}
+	- 饿汉式          
+	    
+	```java
+	public class Singleton {
+		private Singleton() {
 		}
-		```
+
+		private static final Singleton SINGLETON = new Singleton();
+
+		public static Singleton getInstance() {
+			return SINGLETON;
+		}
+	}
+	```
 	- 懒汉式
-		```java
-		public class Singleton {
-			private Singleton() {
-			}
+	
+	```java
+	public class Singleton {
+		private Singleton() {
+		}
 
-			private static Singleton singleton = null;
+		private static Singleton singleton = null;
 
-			public static Singleton getInstance() {
-				// 同步会导致效率低，这里采用双重判断的方式来提高效率
-				if (singleton == null) {
-					synchronized (Singleton.class) {
-						if (singleton == null) {
-							singleton = new Singleton();
-						}
+		public static Singleton getInstance() {
+			// 同步会导致效率低，这里采用双重判断的方式来提高效率
+			if (singleton == null) {
+				synchronized (Singleton.class) {
+					if (singleton == null) {
+						singleton = new Singleton();
 					}
 				}
-				return singleton;
 			}
+			return singleton;
 		}
-		```
-	- 枚举	
-	    ```java
-		public enum Singleton {
-			INSTANCE;
-			private Singleton() {
+	}
+	```
+- 枚举	
 
-			}
-		}		
-		```
+	```java
+	public enum Singleton {
+		INSTANCE;
+		private Singleton() {
 	
-	我这里写一种自我感觉是单例最完美的实现方式:　　
+		}
+	}		
+	```
+	
+	我这里写一种自我感觉是单例最完美的实现方式:　
+	
 	```java
 	public class Singleton {
 		// Private constructor prevents instantiation from other classes
 		private Singleton() { }
-
+	
 		/**
 		* SingletonHolder is loaded on the first execution of Singleton.getInstance() 
 		* or the first access to SingletonHolder.INSTANCE, not before.
@@ -69,12 +73,16 @@
 		private static class SingletonHolder { 
 				public static final Singleton INSTANCE = new Singleton();
 		}
-
+		
 		public static Singleton getInstance() {
 				return SingletonHolder.INSTANCE;
 		}
 	}
+		
 	``` 
+
+
+	
 	[单例模式](http://wuchong.me/blog/2014/08/28/how-to-correctly-write-singleton-pattern/) 
 	[懒汉式和饿汉式](http://stormzhang.com/designpattern/2016/03/27/android-design-pattern-singleton/)
 	
@@ -82,17 +90,25 @@
     题目描述：一个二维数组，每一行从左到右递增，每一列从上到下递增．输入一个二维数组和一个整数，判断数组中是否含有整数。
 	             
 	分析:     
-	1   6   11
-	5   9   15
-	7   13   20
+	1　　6　　11
+	5　　9　　15
+	7　　13　　20
 	
 	假设我们要找7，那怎么找呢？                
 	我们先从第一行找，从后往前找，因为他是递增的，先是11，这里11>7所以肯定不是第三列的。这时候我们就找第二列，       
 	这个值是6,6 < 7,所以我们可以从第二列往下找，这个数可能会再第二列或者第一列。把行数加1，来到第二行第二列的9            
 	这时候一判断9 > 7，所以不可能是第二列了，这时候把列数再前移，来到第一列，刚才是第二行，所以我们取第一列第二行        
 	的数，也就是5,5 < 7，所以还要继续往后找，就是把行数加1，就来到了第三行第一列，也就是7，一判断就是他了。         
-	整体思路就是从右上角开始，逐渐前移列数或者增加行数。          
+	整体思路就是从右上角开始，逐渐前移列数或者增加行数。
+	          
 	```java
+	/*  
+    如果 array 是空，返回 false。
+    如何证明其正确性？
+    第一行最后一列有个性质，向左比它小，向右比它大，可以写程序。
+    每次所比较的那个数，都是『右上』的。上面的比它小，放弃，右边的比它大，放弃。
+    一会抛大，一会抛小，不断压缩范围。
+     */
 	public static boolean find(int[][] array, int number) {
 		if (array == null) {
 			return false;
@@ -120,7 +136,8 @@
 	
 4. 替换空格            
     请实现一个函数，把字符串中的每个空格替换成`%20`。              
-	思路: 很简单，就是判断每个字符是否为空着，但也要注意使用`StringBuilder`会比`StringBuffer`效率稍高。                    
+	思路: 很简单，就是判断每个字符是否为空着，但也要注意使用`StringBuilder`会比`StringBuffer`效率稍高。     
+	               
 	```java
 	public String replaceBlank(String input) {
 		if (input == null) {

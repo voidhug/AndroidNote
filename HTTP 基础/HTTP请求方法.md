@@ -1,0 +1,11 @@
+HTTP/1.1 协议中的 HTTP 请求方法  
+===
+- OPTIONS 
+- GET
+- HEAD
+- POST
+- PUT
+- DELETE
+- TRACE
+- CONNECT
+
