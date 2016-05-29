@@ -435,7 +435,7 @@ x.innerHTML="Hello JavaScript!";    // 改变内容
 
 ---
 
-- 邮箱 ：charon.chui@gmail.com  
+- 邮箱 ：zhu_tian_cheng@126.com  
 - Good Luck! 
 
 
